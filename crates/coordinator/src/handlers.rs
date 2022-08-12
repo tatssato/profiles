@@ -71,7 +71,8 @@ pub fn get_all_profiles() -> ExternResult<Vec<Record>> {
         .map(|path| {
             Ok(GetLinksInput::new(
                 path.path_entry_hash()?.into(),
-                LinkTypes::PathToProfile.try_into_filter()?,
+                // LinkTypes::PathToProfile.try_into_filter()?,
+                LinkType(1).into(), // TODO: do not hardcode
                 None,
             ))
         })
@@ -127,7 +128,8 @@ pub fn get_agents_profiles(agent_pub_keys: Vec<AgentPubKey>) -> ExternResult<Vec
         .map(|agent_pub_key| {
             Ok(GetLinksInput::new(
                 agent_pub_key.into(),
-                LinkTypes::AgentToProfile.try_into_filter()?,
+                // LinkTypes::AgentToProfile.try_into_filter()?,
+                LinkType(2).into(), // TODO: do not hardcode
                 None,
             ))
         })
