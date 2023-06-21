@@ -147,7 +147,10 @@ pub fn get_agents_profiles(agent_pub_keys: Vec<AgentPubKey>) -> ExternResult<Vec
     Ok(profiles)
 }
 
-/** Private helpers */
+/**
+ Private helpers
+*/
+
 
 fn prefix_path(nickname: String) -> ExternResult<TypedPath> {
     // conver to lowercase for path for ease of search
